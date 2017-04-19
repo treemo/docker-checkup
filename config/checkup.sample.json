@@ -1,0 +1,47 @@
+{
+	"checkers": [{
+		"type": "http",
+		"endpoint_name": "Example HTTP",
+		"endpoint_url": "http://www.example.com",
+		"attempts": 5
+	},
+	{
+		"type": "tcp",
+		"endpoint_name": "Example TCP",
+		"endpoint_url": "example.com:80",
+		"attempts": 5
+	},
+	{
+		"type": "tcp",
+		"endpoint_name": "Example TCP with TLS enabled and a valid certificate chain",
+		"endpoint_url": "example.com:443",
+		"attempts": 5,
+		"tls": true
+	},
+	{
+		"type": "tcp",
+		"endpoint_name": "Example TCP with TLS enabled and a self-signed certificate chain",
+		"endpoint_url": "example.com:8443",
+		"attempts": 5,
+		"tls": true,
+		"tls_ca_file": "testdata/ca.pem"
+	},
+	{
+		"type": "tcp",
+		"endpoint_name": "Example TCP with TLS enabled and verification disabled",
+		"endpoint_url": "example.com:8443",
+		"attempts": 5,
+		"tls": true,
+		"tls_skip_verify": true
+	},
+	{
+		"type": "dns",
+		"endpoint_name": "Example DNS test of endpoint_url looking up host.example.com",
+		"endpoint_url": "ns.example.com:53",
+		"hostname_fqdn": "host.example.com"
+	}],
+	"storage": {
+		"provider": "fs",
+		"dir": "/var/www/localhost/htdocs/data"
+	}
+}

@@ -1,0 +1,4 @@
+data/
+config/*
+!config/checkup.sample.json
+!config/config.sample.js

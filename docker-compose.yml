@@ -1,0 +1,24 @@
+# init:
+#     cd config/ && cp config.sample.js config.js && cp checkup.sample.json checkup.json
+
+
+version: '2'
+
+services:
+  checkup:
+    image: treemo/checkup
+    container_name: checkup
+    volumes:
+      - ./config/checkup.json:/checkup.json:ro
+      - ./config/config.js:/var/www/localhost/htdocs/js/config.js:ro
+      - ./data:/var/www/localhost/htdocs/data
+    environment:
+      - CHECK_INTERVALl=5m
+    cpu_shares: 73
+    cpu_quota: 50000
+    cpuset: 0,0
+    mem_limit: 300m
+    memswap_limit: 300m
+    ports:
+      - 127.0.0.1:80:80
+
